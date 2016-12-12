@@ -1,0 +1,35 @@
+<manifest alg="2" build="2015.2.0.352" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive" exportTarget="other" domain="test1.ru" resolutions="1x" timestamp="1481536422408">
+  <folder name="css">
+    <file name="site_global.css" crc="3916556066"/>
+    <file name="master_______-a.css" crc="307027645" ref="weather:analysis:guests:invite:index"/>
+    <file name="weather.css" crc="82851230" ref="weather"/>
+    <file name="analysis.css" crc="82851230" ref="analysis"/>
+    <file name="guests.css" crc="82851230" ref="guests"/>
+    <file name="invite.css" crc="82851230" ref="invite"/>
+    <file name="index.css" crc="3996516172" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="312386352" ref="index:analysis:guests:invite:weather"/>
+    <file name="museutils.js" crc="4155826306" ref="index:analysis:guests:invite:weather"/>
+    <file name="whatinput.js" crc="86476730" ref="index:analysis:guests:invite:weather"/>
+    <file name="museconfig.js" crc="483509463" ref="index:analysis:guests:invite:weather"/>
+    <file name="jquery.musemenu.js" crc="3765356681" ref="index:analysis:guests:invite:weather"/>
+    <file name="jquery.watch.js" crc="117772946" ref="index:analysis:guests:invite:weather"/>
+    <file name="pie.js" crc="3827607177" ref="index"/>
+    <file name="html5shiv.js" crc="4241844378" ref="index:analysis:guests:invite:weather"/>
+    <file name="require.js" crc="228336483" ref="index:analysis:guests:invite:weather"/>
+  </folder>
+  <folder name="images">
+    <file name="exit_button_standart.jpg" crc="4170383292" ref="index"/>
+    <file name="exit_button_onmouse.jpg" crc="4081403688" ref="index"/>
+    <file name="exit_button_onclick.jpg" crc="3912077649" ref="index"/>
+    <file name="menu_block.png" crc="36412950" ref="index"/>
+    <file name="blank.gif" crc="4208392903" ref="index"/>
+    <file name="footer_block.png" crc="152332687" ref="index"/>
+  </folder>
+  <file name="index.html" crc="4055857716" seo="true" mt="1481050825625" redirect="true"/>
+  <file name="analysis.html" crc="3855641434" seo="true" mt="1481050825625" redirect="true"/>
+  <file name="guests.html" crc="519217901" seo="true" mt="1481050825625" redirect="true"/>
+  <file name="invite.html" crc="263939534" seo="true" mt="1481050825625" redirect="true"/>
+  <file name="weather.html" crc="3789052078" seo="true" mt="1481050825625" redirect="true"/>
+</manifest>

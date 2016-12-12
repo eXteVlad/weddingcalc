@@ -15,13 +15,13 @@
 		if($query->num_rows == 1)
 		{
 			$_SESSION['login'] = $login;
-			header('location:profile.php');
+			header('location:index.php');
 			exit;
 		}
 		else
 		{
 			$_SESSION['wrong_login'] = 1;
-			header('location:index.php');
+			header('location:notlogged.php');
 			exit;
 		}
 		$mysqli->close();
@@ -58,7 +58,7 @@
 			if($mysqli->query("INSERT INTO users (Login, Password, Email, UserName, Marriage_Date) VALUES ('$login', '$pass', '$email', '$username', '$date')"))
 			{
 				$_SESSION['regsuc'] = 1;
-				header('location:index.php');
+				header('location:notlogged.php');
 				exit;
 			}
 			else 

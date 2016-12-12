@@ -1,11 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['login']))
-    {
-        header('location:notlogged.php');
-        exit;
-    }
-?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
  <head>
@@ -18,14 +10,14 @@
 document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
 
 // Check that all required assets are uploaded and up-to-date
-if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["jquery-1.8.3.min.js", "museutils.js", "museconfig.js", "jquery.musemenu.js", "jquery.watch.js", "require.js", "index.css"], "outOfDate":[]};
+if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["jquery-1.8.3.min.js", "museutils.js", "museconfig.js", "jquery.musemenu.js", "jquery.watch.js", "require.js", "invite.css"], "outOfDate":[]};
 </script>
   
-  <title>Главная</title>
+  <title>Приглашение</title>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=3916556066"/>
   <link rel="stylesheet" type="text/css" href="css/master_______-a.css?crc=307027645"/>
-  <link rel="stylesheet" type="text/css" href="../css/index.css?crc=3996516172" id="pagesheet"/>
+  <link rel="stylesheet" type="text/css" href="css/invite.css?crc=82851230" id="pagesheet"/>
   <!-- JS includes -->
   <!--[if lt IE 9]>
   <script src="scripts/html5shiv.js?crc=4241844378" type="text/javascript"></script>
@@ -39,10 +31,10 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      <div id="u455"><!-- column -->
       <div class="clearfix" id="u455_align_to_page">
        <div class="clearfix colelem" id="pu456-4"><!-- group -->
-        <a class="nonblock nontext MuseLinkActive clearfix grpelem" id="u456-4" href="index.php"><!-- content --><p>Wedding Calculator</p></a>
+        <a class="nonblock nontext clearfix grpelem" id="u456-4" href="index.php"><!-- content --><p>Wedding Calculator</p></a>
         <div class="clearfix grpelem" id="pu618-4"><!-- column -->
          <div class="clearfix colelem" id="u618-4"><!-- content -->
-             <p><?php echo $_SESSION['login'] ?></p>
+          <p><?php echo $_SESSION['login'] ?></p>
          </div>
          <a class="nonblock nontext colelem" id="u621" href="exit.php"><!-- simple frame --></a>
         </div>
@@ -53,7 +45,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
        <div class="clearfix colelem" id="u458"><!-- group -->
         <nav class="MenuBar clearfix grpelem" id="menuu459"><!-- horizontal box -->
          <div class="MenuItemContainer clearfix grpelem" id="u467"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive transition clearfix colelem" id="u468" href="index.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u471-4"><!-- content --><p>Главная</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u468" href="index.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u471-4"><!-- content --><p>Главная</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u474"><!-- vertical box -->
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u477" href="analysis.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u478-4"><!-- content --><p>Анализ</p></div></a>
@@ -62,7 +54,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u491" href="guests.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u494-4"><!-- content --><p>Гости</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u481"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="invite.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive transition clearfix colelem" id="u482" href="invite.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u460"><!-- vertical box -->
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u463" href="weather.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u466-4"><!-- content --><p>Погода</p></div></a>
@@ -72,28 +64,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       </div>
      </div>
     </div>
-    <div class="shadow clearfix colelem" id="u454"><!-- column -->
-     <div class="clearfix colelem" id="u600-4"><!-- content -->
-      <p>До свадьбы осталось: n дней.</p>
-     </div>
-     <div class="clearfix colelem" id="u601-6"><!-- content -->
-      <p>Ваш бюджет:</p>
-      <p>2400 руб. / 200 000 руб.</p>
-     </div>
-     <div class="shadow clearfix colelem" id="u602"><!-- column -->
-      <div class="clearfix colelem" id="u603-4"><!-- content -->
-       <p>Вы ещё не выбрали:</p>
-      </div>
-      <div class="clearfix colelem" id="u604-9"><!-- content -->
-       <ul class="list0 nls-None" id="u604-7">
-        <li>носки</li>
-        <li>пиджак</li>
-        <li>невесту</li>
-       </ul>
-      </div>
-     </div>
-    </div>
-    <div class="verticalspacer" data-offset-top="782" data-content-above-spacer="841" data-content-below-spacer="179"></div>
+    <div class="colelem" id="u454"><!-- simple frame --></div>
+    <div class="verticalspacer" data-offset-top="0" data-content-above-spacer="841" data-content-below-spacer="179"></div>
     <div class="browser_width colelem" id="u450-bw">
      <div id="u450"><!-- group -->
       <div class="clearfix" id="u450_align_to_page">
@@ -109,10 +81,6 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      </div>
     </div>
    </div>
-  </div>
-  <div class="preload_images">
-   <img class="preload" src="images/exit_button_onmouse.jpg?crc=4081403688" alt=""/>
-   <img class="preload" src="images/exit_button_onclick.jpg?crc=3912077649" alt=""/>
   </div>
   <!-- Other scripts -->
   <script type="text/javascript">
