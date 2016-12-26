@@ -20,7 +20,8 @@
                 <br />  
                 <br />  
                 <div class="table-responsive">  
-                     <h3 align="center">Полный список Ваших гостей!</h3><br />  
+                     <a href="index.php"><button class = "btn btn-danger">Назад</button></a>
+                    <h3 align="center">Список Ваших гостей:</h3><br />  
                      <div id="live_data"></div>                 
                 </div>  
            </div>  
@@ -40,22 +41,16 @@
       }  
       fetch_data();  
       $(document).on('click', '#btn_add', function(){  
-           var first_name = $('#first_name').text();  
-           var last_name = $('#last_name').text();  
-           if(first_name == '')  
+           var fio = $('#FIO').text();  
+           if(fio == '')  
            {  
-                alert("Enter First Name");  
-                return false;  
-           }  
-           if(last_name == '')  
-           {  
-                alert("Enter Last Name");  
+                alert("Введите ФИО гостя.");  
                 return false;  
            }  
            $.ajax({  
                 url:"insert.php",  
                 method:"POST",  
-                data:{first_name:first_name, last_name:last_name},  
+                data: {FIO:fio}, 
                 dataType:"text",  
                 success:function(data)  
                 {  
@@ -64,36 +59,14 @@
                 }  
            })  
       });  
-      function edit_data(id, text, column_name)  
-      {  
-           $.ajax({  
-                url:"edit.php",  
-                method:"POST",  
-                data:{id:id, text:text, column_name:column_name},  
-                dataType:"text",  
-                success:function(data){  
-                     alert(data);  
-                }  
-           });  
-      }  
-      $(document).on('blur', '.first_name', function(){  
-           var id = $(this).data("id1");  
-           var first_name = $(this).text();  
-           edit_data(id, first_name, "first_name");  
-      });  
-      $(document).on('blur', '.last_name', function(){  
-           var id = $(this).data("id2");  
-           var last_name = $(this).text();  
-           edit_data(id,last_name, "last_name");  
-      });  
       $(document).on('click', '.btn_delete', function(){  
-           var id=$(this).data("id3");  
-           if(confirm("Are you sure you want to delete this?"))  
+           var fio=$(this).data("id3"); 
+           if(confirm("Вы уверены, что хотите удалить этого гостя?"))  
            {  
                 $.ajax({  
                      url:"delete.php",  
                      method:"POST",  
-                     data:{id:id},  
+                     data: {FIO:fio},  
                      dataType:"text",  
                      success:function(data){  
                           alert(data);  
