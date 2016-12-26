@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login']))
+    {
+        header('location:notlogged.php');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
  <head>
@@ -54,7 +62,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u491" href="guests.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u494-4"><!-- content --><p>Гости</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u481"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="invite.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="pngGen.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u460"><!-- vertical box -->
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu MuseMenuActive transition clearfix colelem" id="u463" href="weather.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u466-4"><!-- content --><p>Погода</p></div></a>
@@ -64,7 +72,44 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       </div>
      </div>
     </div>
-    <div class="colelem" id="u454"><!-- simple frame --></div>
+    <div class="colelem" id="u454"><!-- simple frame -->
+    
+        <?php 
+            $city = "Astrakhan"; // город. Можно и по-русски написать, например: Брянск
+            $mode = "json"; // в каком виде мы получим данные
+            $units = "metric"; // Единицы измерения. metric или imperial
+            $lang = "ru"; // язык
+            $countDay = 3; // количество дней. Максимум 14 дней
+
+            // формируем урл для запроса
+            $url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=$city&mode=$mode&units=$units&cnt=$countDay&lang=$lang&APPID=a8527f242d3645e8d9d74a4660bf8b40";
+            // делаем запрос к апи
+            $data = @file_get_contents($url);
+            // если получили данные
+            if($data){
+                // декодируем полученные данные
+                $dataJson = json_decode($data);
+                // получаем только нужные данные
+                $arrayDays = $dataJson->list;
+                // выводим данные
+                foreach($arrayDays as $oneDay){
+                    echo "Утром: " . $oneDay->temp->morn . "<br/>"; 
+                    echo "Днем: " . $oneDay->temp->day . "<br/>";   
+                    echo "Вечером: " . $oneDay->temp->eve . "<br/>";    
+                    echo "Ночью: " . $oneDay->temp->night . "<br/>";    
+                    echo "Скорость ветра: " . $oneDay->speed . "<br/>";
+                    echo "Погода: " . $oneDay->weather[0]->description . "<br/>";
+                    echo "Давление: " . $oneDay->pressure . "<br/>";
+                    echo "Влажность: " . $oneDay->humidity . "<br/>";
+                    echo "<hr/>";
+                }
+            }else{
+                echo "Сервер не доступен!";
+            }
+        ?>
+
+        
+    </div>
     <div class="verticalspacer" data-offset-top="0" data-content-above-spacer="841" data-content-below-spacer="179"></div>
     <div class="browser_width colelem" id="u450-bw">
      <div id="u450"><!-- group -->

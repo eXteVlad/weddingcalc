@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login']))
+    {
+        header('location:notlogged.php');
+        exit;
+    }
+?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
  <head>
@@ -54,7 +62,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u491" href="guests.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u494-4"><!-- content --><p>Гости</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u481"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="invite.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="pngGen.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u460"><!-- vertical box -->
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u463" href="weather.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u466-4"><!-- content --><p>Погода</p></div></a>

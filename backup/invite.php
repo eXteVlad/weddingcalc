@@ -1,11 +1,3 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['login']))
-    {
-        header('location:notlogged.php');
-        exit;
-    }
-?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
  <head>
@@ -39,10 +31,10 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      <div id="u455"><!-- column -->
       <div class="clearfix" id="u455_align_to_page">
        <div class="clearfix colelem" id="pu456-4"><!-- group -->
-        <a class="nonblock nontext clearfix grpelem" id="u456-4" href="index.php"><!-- content --><p>Wedding Calculator</p></a>
+        <a class="nonblock nontext clearfix grpelem" id="u456-4" href="index.html"><!-- content --><p>Wedding Calculator</p></a>
         <div class="clearfix grpelem" id="pu618-4"><!-- column -->
          <div class="clearfix colelem" id="u618-4"><!-- content -->
-          <p><?php echo $_SESSION['login'] ?></p>
+          <p>exte</p>
          </div>
          <a class="nonblock nontext colelem" id="u621" href="exit.php"><!-- simple frame --></a>
         </div>
@@ -72,45 +64,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       </div>
      </div>
     </div>
-    <div class="colelem" id="u454">
-       
-    <?php
-
-        function drawImage($adress,$font, $date, $place, $weather)
-        {
-            $im = @imagecreatefrompng($adress);
-
-            /* Если не удалось */
-            if(!$im)
-            {
-                /* Создаем пустое изображение */
-                $im  = imagecreatetruecolor(150, 30);
-                $bgc = imagecolorallocate($im, 255, 255, 255);
-                $tc  = imagecolorallocate($im, 0, 0, 0);
-
-                imagefilledrectangle($im, 0, 0, 150, 30, $bgc);
-
-                /* Выводим сообщение об ошибке */
-                imagestring($im, 1, 5, 5, 'Ошибка загрузки ' . $adress, $tc);
-            }
-
-            imagettftext($im, 15, 0, 335, 193, $bgc, $font, $date);
-            imagettftext($im, 15, 0, 295, 216, $bgc, $font, $place);
-            imagettftext($im, 15, 0, 475, 241, $bgc, $font, $weather . '!');
-
-            return $im;
-        }
-              
-        header('Content-Type: ../images/');
-
-        $img = drawImage('Loli.png','ANTQUAI.ttf','27  декабря','Ежже','полный пиздец');
-
-        imagepng($img);
-        imagedestroy($img);
-        //echo '<img src="Loli.png"/>';
-?>
-        
-       </div>
+    <div class="colelem" id="u454"><!-- simple frame --></div>
     <div class="verticalspacer" data-offset-top="0" data-content-above-spacer="841" data-content-below-spacer="179"></div>
     <div class="browser_width colelem" id="u450-bw">
      <div id="u450"><!-- group -->

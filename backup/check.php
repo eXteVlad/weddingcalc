@@ -11,13 +11,11 @@
 			printf("Невозможно подключиться к базе данных. Код ошибки: %s\n", mysqli_connect_error()); 
 			exit; 
 		}
-		$query = $mysqli->query("SELECT Login, Password, Marriage_Date FROM users WHERE Login = '$login' AND password = '$pass'");
+		$query = $mysqli->query("SELECT * FROM users WHERE Login = '$login' AND password = '$pass'");
+        $date = mysqli_fetch_array($query);
+        $date[5] = $_SESSION['m_date'];
 		if($query->num_rows == 1)
 		{
-            while($row = $query->fetch_row())
-            {
-                $_SESSION['date'] = $row['Marriage_Date'];
-            }
 			$_SESSION['login'] = $login;
 			header('location:index.php');
 			exit;

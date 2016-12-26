@@ -3,6 +3,11 @@
     background-color: #35FF4C;
 }
 
+#ostalos
+{
+    font-size: 24px;
+}
+
 #page {
     z-index: 1;
     width: 960px;

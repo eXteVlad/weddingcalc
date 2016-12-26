@@ -1,10 +1,10 @@
 <?php
-//    session_start();
-//    if(!isset($_SESSION['login']))
-//    {
-//        header('location:notlogged.php');
-//        exit;
-//    }
+    session_start();
+    if(!isset($_SESSION['login']))
+    {
+        header('location:notlogged.php');
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
@@ -62,7 +62,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u491" href="guests.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u494-4"><!-- content --><p>Гости</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u481"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="invite.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="pngGen.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u460"><!-- vertical box -->
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u463" href="weather.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u466-4"><!-- content --><p>Погода</p></div></a>
@@ -73,12 +73,11 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      </div>
     </div>
     <div class="shadow clearfix colelem" id="u454"><!-- column -->
-     <div class="clearfix colelem" id="u600-4"><!-- content -->
-      <p>До свадьбы осталось: n дней.</p>
-     </div>
+        <center>
+            <!--<p>Дата свадьбы: <?php echo $_SESSION['date'] ?></p>-->
+        </center>
      <div class="clearfix colelem" id="u601-6"><!-- content -->
-      <p>Ваш бюджет: <input type="text" size="6"> руб.</p>
-      <p>Ваши расходы:<input id="cost" type="text" size="6" readonly> руб.</p>
+      <!--<p>Ваши расходы:<input id="cost" type="text" size="6" readonly> руб.</p>-->
      </div>
      <div class="shadow clearfix colelem" id="u602"><!-- column -->
       <div class="clearfix colelem" id="u603-4"><!-- content -->
@@ -203,7 +202,7 @@ replace (/^\-?\d+/g, '').length)
 {s += t [j].value * 1; k++} 
 document.getElementById ('uslugi').value = 
 (k == t.length) ? s : '???'; TIM = setTimeout (fU, 10)} 
-function fS () {clearTimeout (TIM)} 
+function fS () {clearTimeout (TIM)}
 
 </script> 
   <!-- RequireJS script -->
