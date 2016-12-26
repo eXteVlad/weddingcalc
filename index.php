@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['login']))
-    {
-        header('location:notlogged.php');
-        exit;
-    }
+//    session_start();
+//    if(!isset($_SESSION['login']))
+//    {
+//        header('location:notlogged.php');
+//        exit;
+//    }
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
@@ -77,20 +77,58 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       <p>До свадьбы осталось: n дней.</p>
      </div>
      <div class="clearfix colelem" id="u601-6"><!-- content -->
-      <p>Ваш бюджет:</p>
-      <p>2400 руб. / 200 000 руб.</p>
+      <p>Ваш бюджет: <input type="text" size="6"> руб.</p>
+      <p>Ваши расходы:<input id="cost" type="text" size="6" readonly> руб.</p>
      </div>
      <div class="shadow clearfix colelem" id="u602"><!-- column -->
       <div class="clearfix colelem" id="u603-4"><!-- content -->
-       <p>Вы ещё не выбрали:</p>
+       <p>Невеста</p>
+      </div>
+      <div class="clearfix colelem" id="u604-9"><!-- content -->
+       <ul class="list0 nls-None" id="n604-7">
+        <p><label>Свадебное платье</label> <input onfocus="this.select (); fN ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Обручальное кольцо</label> <input onfocus="this.select (); fN ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Ювелирные украшения</label> <input onfocus="this.select (); fN ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Туфли</label> <input onfocus="this.select (); fN ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Аксессуары</label> <input onfocus="this.select (); fN ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+       </ul>
+      </div>
+         <div class="clearfix colelem" id="n603-4"><!-- content -->
+         <p>Затраты на невесту: <input id="nevesta" type="text" size="6" readonly value="0"> руб.</p>
+         </div>
+     </div>
+        <div class="shadow clearfix colelem" id="u602"><!-- column -->
+      <div class="clearfix colelem" id="u603-4"><!-- content -->
+       <p>Жених</p>
+      </div>
+      <div class="clearfix colelem" id="u604-9"><!-- content -->
+       <ul class="list0 nls-None" id="z604-7">
+        <p><label>Костюм</label> <input onfocus="this.select (); fZ ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Обручальное кольцо</label> <input onfocus="this.select (); fZ ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Носки</label> <input onfocus="this.select (); fZ ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Ботинки</label> <input onfocus="this.select (); fZ ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Аксессуары</label> <input onfocus="this.select (); fZ ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+       </ul>
+      </div>
+        <div class="clearfix colelem" id="n603-4"><!-- content -->
+         <p>Затраты на жениха: <input id="zhenih" type="text" size="6" readonly> руб.</p>
+         </div>
+     </div>
+        <div class="shadow clearfix colelem" id="u602"><!-- column -->
+      <div class="clearfix colelem" id="u603-4"><!-- content -->
+       <p>Услуги</p>
       </div>
       <div class="clearfix colelem" id="u604-9"><!-- content -->
        <ul class="list0 nls-None" id="u604-7">
-        <li>носки</li>
-        <li>пиджак</li>
-        <li>невесту</li>
+        <p><label>Ресторан</label> <input input onfocus="this.select (); fU ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Свадебный торт</label> <input input onfocus="this.select (); fU ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Оператор</label> <input input onfocus="this.select (); fU ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
+        <p><label>Фотограф</label> <input input onfocus="this.select (); fU ()" onblur="fS ()" type="text" size="5" value="0"> руб.</p>
        </ul>
       </div>
+         <div class="clearfix colelem" id="n603-4"><!-- content -->
+         <p>Затраты на услуги: <input id="uslugi" type="text" size="6" readonly> руб.</p>
+         </div>
      </div>
     </div>
     <div class="verticalspacer" data-offset-top="782" data-content-above-spacer="841" data-content-below-spacer="179"></div>
@@ -115,6 +153,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
    <img class="preload" src="images/exit_button_onclick.jpg?crc=3912077649" alt=""/>
   </div>
   <!-- Other scripts -->
+  
   <script type="text/javascript">
    window.Muse.assets.check=function(){if(!window.Muse.assets.checked){window.Muse.assets.checked=!0;var a={},b=function(){$('link[type="text/css"]').each(function(){var b=($(this).attr("href")||"").match(/\/?css\/([\w\-]+\.css)\?crc=(\d+)/);b&&b[1]&&b[2]&&(a[b[1]]=b[2])})},c=function(a){if(a.match(/^rgb/))return a=a.replace(/\s+/g,"").match(/([\d\,]+)/gi)[0].split(","),(parseInt(a[0])<<16)+(parseInt(a[1])<<8)+parseInt(a[2]);if(a.match(/^\#/))return parseInt(a.substr(1),16);return 0},d=function(d){if("undefined"!==
 typeof $){b();$("body").append('<div class="version" style="display:none; width:1px; height:1px;"></div>');for(var f=$(".version"),j=0;j<Muse.assets.required.length;){var h=Muse.assets.required[j],i=h.match(/([\w\-\.]+)\.(\w+)$/),k=i&&i[1]?i[1]:null,i=i&&i[2]?i[2]:null;switch(i.toLowerCase()){case "css":k=k.replace(/\W/gi,"_").replace(/^([^a-z])/gi,"_$1");f.addClass(k);var i=c(f.css("color")),l=c(f.css("background-color"));i!=0||l!=0?(Muse.assets.required.splice(j,1),"undefined"!=typeof a[h]&&(i!=
@@ -131,8 +170,42 @@ Muse.Utils.initWidget('.MenuBar', ['#bp_infinity'], function(elem) { return $(el
 Muse.Utils.showWidgetsWhenReady();/* body */
 Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
 }catch(a){if(a&&"function"==typeof a.notify?a.notify():Muse.Assert.fail("Error calling selector function: "+a),false)throw a;}})})};
-
 </script>
+<script> 
+function fN () {//для целых чисел (в т.ч. < 0) 
+for (var t = document.getElementById 
+('n604-7').getElementsByTagName ('input'), 
+k = j = s = 0; j < t.length; j++) 
+if (t [j].value.length && !t [j].value. 
+replace (/^\-?\d+/g, '').length) 
+{s += t [j].value * 1; k++} 
+document.getElementById ('nevesta').value = 
+(k == t.length) ? s : '???'; TIM = setTimeout (fN, 10)} 
+function fS () {clearTimeout (TIM)} 
+
+function fZ () {//для целых чисел (в т.ч. < 0) 
+for (var t = document.getElementById 
+('z604-7').getElementsByTagName ('input'), 
+k = j = s = 0; j < t.length; j++) 
+if (t [j].value.length && !t [j].value. 
+replace (/^\-?\d+/g, '').length) 
+{s += t [j].value * 1; k++} 
+document.getElementById ('zhenih').value = 
+(k == t.length) ? s : '???'; TIM = setTimeout (fZ, 10)} 
+function fS () {clearTimeout (TIM)} 
+
+function fU () {//для целых чисел (в т.ч. < 0) 
+for (var t = document.getElementById 
+('u604-7').getElementsByTagName ('input'), 
+k = j = s = 0; j < t.length; j++) 
+if (t [j].value.length && !t [j].value. 
+replace (/^\-?\d+/g, '').length) 
+{s += t [j].value * 1; k++} 
+document.getElementById ('uslugi').value = 
+(k == t.length) ? s : '???'; TIM = setTimeout (fU, 10)} 
+function fS () {clearTimeout (TIM)} 
+
+</script> 
   <!-- RequireJS script -->
   <script src="scripts/require.js?crc=228336483" type="text/javascript" async data-main="scripts/museconfig.js?crc=483509463" onload="requirejs.onError = function(requireType, requireModule) { if (requireType && requireType.toString && requireType.toString().indexOf && 0 <= requireType.toString().indexOf('#scripterror')) window.Muse.assets.check(); }" onerror="window.Muse.assets.check();"></script>
    </body>

@@ -379,7 +379,7 @@
     width: 320px;
     min-height: 58px;
     background-color: transparent;
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
     line-height: 29px;
     margin-left: 80px;
@@ -389,18 +389,18 @@
 
 #u602 {
     z-index: 13;
-    width: 320px;
+    width: 330px;
     -pie-box-shadow: 0px 0px 10px 3px #7F7F7F;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.5);
     background-color: #EBEBEB;
     margin-top: 54px;
     position: relative;
-    padding: 9px 80px 34.00000000000006px;
+    padding: 9px 80px 12px;
 }
 
 #u603-4 {
     z-index: 24;
-    width: 320px;
+    width: 360px;
     min-height: 47px;
     background-color: transparent;
     font-size: 24px;
@@ -409,18 +409,32 @@
     position: relative;
 }
 
-#u604-9 {
-    z-index: 28;
-    width: 160px;
-    min-height: 177px;
+#n603-4 {
+    z-index: 24;
+    width: 360px;
+    min-height: 47px;
     background-color: transparent;
-    font-size: 18px;
-    text-align: left;
-    line-height: 22px;
-    margin-left: 80px;
-    margin-top: 21px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 29px;
     position: relative;
 }
+
+#u604-9 {
+    z-index: 28;
+    width: 360px;
+    min-height: 130px;
+    background-color: transparent;
+    font-size: 16px;
+    /*text-align: left;*/
+    line-height: 22px;
+    margin-left: 10px;
+    margin-top: 21px;
+    position: relative;
+    clear:both; 
+    text-align:right;
+}
+label {float:left;}
 
 .css_verticalspacer .verticalspacer {
     height: calc(100vh - 1020px);
@@ -482,4 +496,8 @@
 body {
     position: relative;
     min-width: 960px;
+}
+
+.box {
+  text-align: right;
 }
