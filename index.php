@@ -1,10 +1,70 @@
 <?php
     session_start();
+
+
+function getNumWeather($amDays)
+{
+
+    $city = "Astrakhan"; // город. Можно и по-русски написать, например: Брянск
+    $mode = "json"; // в каком виде мы получим данные
+    $units = "metric"; // Единицы измерения. metric или imperial
+    $lang = "ru"; // язык
+    $countDay = 7; // количество дней. Максимум 14 дней
+
+// формируем урл для запроса
+    $url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=$city&mode=$mode&units=$units&cnt=$countDay&lang=$lang&APPID=a8527f242d3645e8d9d74a4660bf8b40";
+// делаем запрос к апи
+    $data = @file_get_contents($url);
+// если получили данные
+    if($data){
+        // декодируем полученные данные
+        $dataJson = json_decode($data);
+        // получаем только нужные данные
+        $arrayDays = $dataJson->list;
+        // выводим данные
+        $i=0;
+        $res = 0;
+        echo $amDays;
+        foreach($arrayDays as $oneDay)
+        {
+
+            if($i==$amDays)
+            {
+                $res = $oneDay->temp->day;
+                //echo "Погода: " . $oneDay->weather[0]->description . "<br/>";
+            }
+            $i = $i + 1;
+        }
+        return $res;
+    }
+    else{
+        //echo "Сервер не доступен!";
+        return "Error";
+    }
+}
     if(!isset($_SESSION['login']))
     {
         header('location:notlogged.php');
         exit;
     }
+
+    $connect = mysqli_connect("localhost", "root", "", "WeddingBD");
+    if ($connect->connect_error)
+    {
+    die("Connection failed: " . mysqli_connect_error());
+    }
+$login = $_SESSION['login'];
+$sql = "SELECT datediff(marriage_date,sysdate()) a FROM users WHERE login = '$login'";
+$result = mysqli_query($connect, $sql);
+
+$m_day = "";
+
+    while($row = $result->fetch_assoc()) {
+        $m_day = $row["a"];
+    }
+
+$celcious = getNumWeather($m_day)."\xC2\xB0C"
+
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="ru-RU">
@@ -49,6 +109,9 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
        </div>
        <div class="clearfix colelem" id="u457-4"><!-- content -->
         <p>контролируй свою свадьбу</p>
+           <?php
+           echo "Дней до свадьбы : ".$m_day;
+           ?>
        </div>
        <div class="clearfix colelem" id="u458"><!-- group -->
         <nav class="MenuBar clearfix grpelem" id="menuu459"><!-- horizontal box -->
@@ -65,7 +128,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
           <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u482" href="pngGen.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u485-4"><!-- content --><p>Приглашение</p></div></a>
          </div>
          <div class="MenuItemContainer clearfix grpelem" id="u460"><!-- vertical box -->
-          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u463" href="weather.php"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u466-4"><!-- content --><p>Погода</p></div></a>
+          <a class="nonblock nontext MenuItem MenuItemWithSubMenu transition clearfix colelem" id="u463" href="#"><!-- horizontal box --><div class="MenuItemLabel NoWrap transition clearfix grpelem" id="u466-4"><!-- content --><p><?php echo $celcious; ?></p></div></a>
          </div>
         </nav>
        </div>
